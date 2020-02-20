@@ -11,6 +11,8 @@ services:
       MYSQL_DATABASE: sonarqube
       MYSQL_USER: sonarqube
       MYSQL_PASSWORD: P1b7JBvP8II4
+    ports:
+      - "3350:3306"
 
   sonarqube:
     depends_on:
@@ -23,6 +25,6 @@ services:
     environment:
       SONARQUBE_JDBC_USERNAME: sonarqube
       SONARQUBE_JDBC_PASSWORD: P1b7JBvP8II4
-      SONARQUBE_JDBC_URL: jdbc:mysql://db:3306/sonarqube?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true
+      SONARQUBE_JDBC_URL: jdbc:mysql://127.0.0.1:3350/sonarqube?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance
 volumes:
   db_data:
